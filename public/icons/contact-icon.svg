@@ -1,0 +1,13 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect x="4" y="6" width="40" height="36" rx="8" fill="#0F172A"></rect>
+
+  <!-- Sobre -->
+  <rect x="10" y="16" width="28" height="16" rx="3" fill="#1E3A8A"></rect>
+
+  <!-- Solapa del sobre -->
+  <path d="M10 16L24 26L38 16" stroke="#FACC15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+
+  <!-- Detalle heroico (destello) -->
+  <path d="M34 10L35.5 13L39 13.5L36.5 15.5L37 19L34 17.5L31 19L31.5 15.5L29 13.5L32.5 13L34 10Z" fill="#FACC15"></path>
+</svg>

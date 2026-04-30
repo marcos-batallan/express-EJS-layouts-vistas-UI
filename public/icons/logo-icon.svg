@@ -1,0 +1,7 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Escudo -->
+  <path d="M24 4L40 10V22C40 32 32 40 24 44C16 40 8 32 8 22V10L24 4Z" fill="#0F172A"></path>
+  
+  <!-- Estrella -->
+  <path d="M24 14L26.9 20H33L28 23.8L30 30L24 26.5L18 30L20 23.8L15 20H21.1L24 14Z" fill="#FACC15"></path>
+</svg>

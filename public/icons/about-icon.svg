@@ -1,0 +1,11 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Escudo -->
+  <path d="M24 4L40 10V22C40 32 32 40 24 44C16 40 8 32 8 22V10L24 4Z" fill="#0F172A"></path>
+
+  <!-- Círculo central -->
+  <circle cx="24" cy="24" r="8" fill="#1E3A8A"></circle>
+
+  <!-- Letra "i" -->
+  <rect x="23" y="21" width="2" height="7" rx="1" fill="#FACC15"></rect>
+  <circle cx="24" cy="18" r="1.5" fill="#FACC15"></circle>
+</svg>

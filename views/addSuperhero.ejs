@@ -1,61 +1,45 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<%- include('partials/head', { title: "Agregar Superhéroe" }) %>
-
-<body>
-
 <div class="container">
+    <!-- ERRORES -->
+    <% if (errores && errores.length > 0) { %>
+        <div class="error">
+            <ul>
+                <% errores.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
 
-<%- include('partials/header') %>
+    <form action="/api/heroes/agregar" method="POST">
 
-<!-- ERRORES -->
-<% if (errores && errores.length > 0) { %>
-    <div class="error">
-        <ul>
-            <% errores.forEach(error => { %>
-                <li><%= error.msg %></li>
-            <% }) %>
-        </ul>
-    </div>
-<% } %>
+        <input type="text" name="nombreSuperHeroe" placeholder="Nombre"
+            value="<%= datos?.nombreSuperHeroe || '' %>" required>
 
-<form action="/api/heroes/agregar" method="POST">
+        <input type="text" name="nombreReal" placeholder="Nombre real"
+            value="<%= datos?.nombreReal || '' %>" required>
 
-    <input type="text" name="nombreSuperHeroe" placeholder="Nombre"
-        value="<%= datos?.nombreSuperHeroe || '' %>" required>
+        <input type="number" name="edad" placeholder="Edad"
+            value="<%= datos?.edad || '' %>" required>
 
-    <input type="text" name="nombreReal" placeholder="Nombre real"
-        value="<%= datos?.nombreReal || '' %>" required>
+        <input type="text" name="planetaOrigen" placeholder="Planeta"
+            value="<%= datos?.planetaOrigen || '' %>">
 
-    <input type="number" name="edad" placeholder="Edad"
-        value="<%= datos?.edad || '' %>" required>
+        <input type="text" name="debilidad" placeholder="Debilidad"
+            value="<%= datos?.debilidad || '' %>">
 
-    <input type="text" name="planetaOrigen" placeholder="Planeta"
-        value="<%= datos?.planetaOrigen || '' %>">
+        <input type="text" name="poderes" placeholder="Poderes (separados por coma)"
+            value="<%= datos?.poderes || '' %>" required>
 
-    <input type="text" name="debilidad" placeholder="Debilidad"
-        value="<%= datos?.debilidad || '' %>">
+        <input type="text" name="aliados" placeholder="Aliados (opcional)"
+            value="<%= datos?.aliados || '' %>">
 
-    <input type="text" name="poderes" placeholder="Poderes (separados por coma)"
-        value="<%= datos?.poderes || '' %>" required>
+        <input type="text" name="enemigos" placeholder="Enemigos (opcional)"
+            value="<%= datos?.enemigos || '' %>">
 
-    <input type="text" name="aliados" placeholder="Aliados (opcional)"
-        value="<%= datos?.aliados || '' %>">
+        <button class="btn btn-save" type="submit">Guardar</button>
+    </form>
 
-    <input type="text" name="enemigos" placeholder="Enemigos (opcional)"
-        value="<%= datos?.enemigos || '' %>">
-
-    <button class="btn btn-save" type="submit">Guardar</button>
-</form>
-
-<button class="btn btn-back" onclick="window.location.href='/heroes'">
-    ⬅ Volver
-</button>
-
-<%- include('partials/footer') %>
-
+    <button class="btn btn-back" onclick="window.location.href='/heroes'">
+        ⬅ Volver
+    </button>
 </div>
-
-</body>
-</html>

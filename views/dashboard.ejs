@@ -1,65 +1,48 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<%- include('partials/head', { title: "Dashboard Superhéroes" }) %>
-
-<body>
-
 <div class="container">
+    <% if (superheroes.length === 0) { %>
+        <p class="empty">No hay superhéroes cargados</p>
+    <% } %>
 
-<%- include('partials/header') %>
+    <% superheroes.forEach(heroe => { %>
+        <div class="card">
+            <h3><%= heroe.nombreSuperHeroe %></h3>
 
-<% if (superheroes.length === 0) { %>
-    <p class="empty">No hay superhéroes cargados</p>
-<% } %>
+            <p><strong>Nombre real:</strong> <%= heroe.nombreReal %></p>
+            <p><strong>Edad:</strong> <%= heroe.edad %></p>
+            <p><strong>Planeta:</strong> <%= heroe.planetaOrigen || 'Desconocido' %></p>
+            <p><strong>Debilidad:</strong> <%= heroe.debilidad || 'N/A' %></p>
 
-<% superheroes.forEach(heroe => { %>
-    <div class="card">
-        <h3><%= heroe.nombreSuperHeroe %></h3>
+            <p><strong>Poderes:</strong> <%= heroe.poderes.join(', ') %></p>
 
-        <p><strong>Nombre real:</strong> <%= heroe.nombreReal %></p>
-        <p><strong>Edad:</strong> <%= heroe.edad %></p>
-        <p><strong>Planeta:</strong> <%= heroe.planetaOrigen || 'Desconocido' %></p>
-        <p><strong>Debilidad:</strong> <%= heroe.debilidad || 'N/A' %></p>
+            <% if (heroe.aliados && heroe.aliados.length > 0) { %>
+                <p><strong>Aliados:</strong> <%= heroe.aliados.join(', ') %></p>
+            <% } %>
 
-        <p><strong>Poderes:</strong> <%= heroe.poderes.join(', ') %></p>
+            <% if (heroe.enemigos && heroe.enemigos.length > 0) { %>
+                <p><strong>Enemigos:</strong> <%= heroe.enemigos.join(', ') %></p>
+            <% } %>
 
-        <% if (heroe.aliados && heroe.aliados.length > 0) { %>
-            <p><strong>Aliados:</strong> <%= heroe.aliados.join(', ') %></p>
-        <% } %>
+            <div class="actions">
 
-        <% if (heroe.enemigos && heroe.enemigos.length > 0) { %>
-            <p><strong>Enemigos:</strong> <%= heroe.enemigos.join(', ') %></p>
-        <% } %>
-
-        <div class="actions">
-
-            <!-- EDITAR -->
-            <button 
-                class="btn btn-edit"
-                onclick="window.location.href='/heroes/editar/<%= heroe._id %>'"
-            >
-                Editar
-            </button>
-
-            <!-- ELIMINAR -->
-            <form 
-                action="/api/heroes/<%= heroe._id %>/eliminar?_method=DELETE" 
-                method="POST"
-                onsubmit="return confirm('¿Seguro que querés eliminar este superhéroe?')"
-            >
-               <button class="btn btn-delete" type="submit">
-                    Eliminar
+                <!-- EDITAR -->
+                <button 
+                    class="btn btn-edit"
+                    onclick="window.location.href='/heroes/editar/<%= heroe._id %>'"
+                >
+                    Editar
                 </button>
-            </form>
 
+                <!-- ELIMINAR -->
+                <form 
+                    action="/api/heroes/<%= heroe._id %>/eliminar?_method=DELETE" 
+                    method="POST"
+                    onsubmit="return confirm('¿Seguro que querés eliminar este superhéroe?')"
+                >
+                <button class="btn btn-delete" type="submit">
+                        Eliminar
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
-<% }) %>
-
-<%- include('partials/footer') %>
-
+    <% }) %>
 </div>
-
-</body>
-</html>

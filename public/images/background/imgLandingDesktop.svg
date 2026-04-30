@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect width="800" height="400" fill="#0F172A"></rect>
+
+  <!-- Glow central -->
+  <circle cx="400" cy="200" r="120" fill="#1E3A8A" opacity="0.4"></circle>
+
+  <!-- HEROES (estilo blocky minimal) -->
+
+  <!-- Centro (líder con capa) -->
+  <g>
+    <rect x="370" y="160" width="60" height="60" rx="8" fill="#2563EB"></rect>
+    <rect x="370" y="220" width="60" height="40" rx="6" fill="#2563EB"></rect>
+    <!-- capa -->
+    <polygon points="370,170 350,240 370,240" fill="#DC2626"></polygon>
+    <!-- símbolo -->
+    <polygon points="400,185 408,200 425,200 412,210 418,225 400,215 382,225 388,210 375,200 392,200" fill="#FACC15"></polygon>
+  </g>
+
+  <!-- Izquierda -->
+  <g>
+    <rect x="250" y="180" width="40" height="40" rx="6" fill="#22C55E"></rect>
+    <rect x="250" y="220" width="40" height="25" rx="5" fill="#22C55E"></rect>
+    <!-- antifaz -->
+    <rect x="255" y="195" width="30" height="10" rx="3" fill="#0F172A"></rect>
+  </g>
+
+  <!-- Derecha -->
+  <g>
+    <rect x="510" y="180" width="40" height="40" rx="6" fill="#A78BFA"></rect>
+    <rect x="510" y="220" width="40" height="25" rx="5" fill="#A78BFA"></rect>
+    <!-- aura mágica -->
+    <circle cx="530" cy="170" r="6" fill="#FACC15"></circle>
+  </g>
+
+  <!-- Extra izquierda -->
+  <g>
+    <rect x="150" y="200" width="35" height="35" rx="6" fill="#F97316"></rect>
+    <rect x="150" y="235" width="35" height="20" rx="5" fill="#F97316"></rect>
+    <!-- casco -->
+    <rect x="150" y="190" width="35" height="15" rx="5" fill="#374151"></rect>
+  </g>
+
+  <!-- Extra derecha -->
+  <g>
+    <rect x="620" y="200" width="35" height="35" rx="6" fill="#06B6D4"></rect>
+    <rect x="620" y="235" width="35" height="20" rx="5" fill="#06B6D4"></rect>
+    <!-- rayo -->
+    <polygon points="635,185 645,200 635,200 645,215" fill="#FACC15"></polygon>
+  </g>
+</svg>

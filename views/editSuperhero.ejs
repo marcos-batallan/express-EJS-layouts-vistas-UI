@@ -1,61 +1,45 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<%- include('partials/head', { title: "Editar Superhéroe" }) %>
-
-<body>
-
 <div class="container">
+    <!-- ERRORES -->
+    <% if (errores && errores.length > 0) { %>
+        <div class="error">
+            <ul>
+                <% errores.forEach(error => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
 
-<%- include('partials/header') %>
+    <form action="/api/heroes/<%= superhero._id %>/editar?_method=PUT" method="POST">
 
-<!-- ERRORES -->
-<% if (errores && errores.length > 0) { %>
-    <div class="error">
-        <ul>
-            <% errores.forEach(error => { %>
-                <li><%= error.msg %></li>
-            <% }) %>
-        </ul>
-    </div>
-<% } %>
+        <input type="text" name="nombreSuperHeroe"
+            value="<%= datos?.nombreSuperHeroe || superhero.nombreSuperHeroe %>" required>
 
-<form action="/api/heroes/<%= superhero._id %>/editar?_method=PUT" method="POST">
+        <input type="text" name="nombreReal"
+            value="<%= datos?.nombreReal || superhero.nombreReal %>" required>
 
-    <input type="text" name="nombreSuperHeroe"
-        value="<%= datos?.nombreSuperHeroe || superhero.nombreSuperHeroe %>" required>
+        <input type="number" name="edad"
+            value="<%= datos?.edad || superhero.edad %>" required>
 
-    <input type="text" name="nombreReal"
-        value="<%= datos?.nombreReal || superhero.nombreReal %>" required>
+        <input type="text" name="planetaOrigen"
+            value="<%= datos?.planetaOrigen || superhero.planetaOrigen %>">
 
-    <input type="number" name="edad"
-        value="<%= datos?.edad || superhero.edad %>" required>
+        <input type="text" name="debilidad"
+            value="<%= datos?.debilidad || superhero.debilidad %>">
 
-    <input type="text" name="planetaOrigen"
-        value="<%= datos?.planetaOrigen || superhero.planetaOrigen %>">
+        <input type="text" name="poderes"
+            value="<%= datos?.poderes || superhero.poderes.join(', ') %>" required>
 
-    <input type="text" name="debilidad"
-        value="<%= datos?.debilidad || superhero.debilidad %>">
+        <input type="text" name="aliados"
+            value="<%= datos?.aliados || (superhero.aliados?.join(', ') || '') %>">
 
-    <input type="text" name="poderes"
-        value="<%= datos?.poderes || superhero.poderes.join(', ') %>" required>
+        <input type="text" name="enemigos"
+            value="<%= datos?.enemigos || (superhero.enemigos?.join(', ') || '') %>">
 
-    <input type="text" name="aliados"
-        value="<%= datos?.aliados || (superhero.aliados?.join(', ') || '') %>">
+        <button class="btn btn-save" type="submit">Actualizar</button>
+    </form>
 
-    <input type="text" name="enemigos"
-        value="<%= datos?.enemigos || (superhero.enemigos?.join(', ') || '') %>">
-
-    <button class="btn btn-save" type="submit">Actualizar</button>
-</form>
-
-<button class="btn btn-back" onclick="window.location.href='/heroes'">
-    ⬅ Volver
-</button>
-
-<%- include('partials/footer') %>
-
+    <button class="btn btn-back" onclick="window.location.href='/heroes'">
+        ⬅ Volver
+    </button>
 </div>
-
-</body>
-</html>

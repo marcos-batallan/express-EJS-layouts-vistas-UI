@@ -7,6 +7,9 @@ import path from 'path';
 // Se importa este middleware para simular métodos HTTP que el navegador no puede enviar desde formularios HTML.
 import methodOverride from 'method-override';
 
+// Se importa el middleware para la implementación de layouts en EJS
+import expressLayouts from 'express-ejs-layouts';
+
 // Se importa este módulo para convertir URL a ruta
 import { fileURLToPath } from 'url';
 
@@ -38,25 +41,39 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Middleware para convertir las requests a JSON
-app.use (express.json());
+app.use(express.json());
 
  // Middleware para que Express pueda leer req.body desde formularios
 app.use(express.urlencoded({ extended: true }));
+
+// Middleware para el uso de layouts en EJS
+app.use(expressLayouts);
+app.set("layout", "layout") //usa views/layout.ejs
+
+// Servir archivos estáticos
+app.use(express.static(path.resolve('./public')));
 
 // Middleware para simular métodos HTTP que el navegador no puede enviar desde formularios HTML.
 app.use(methodOverride("_method"))
 
 // Configuración de rutas (todas las rutas bajo el prefijo /api)
-app.use ('/api', SuperHeroRoutes);
-
-// 
-app.get("/heroes", obtenerSuperheroesDashboardController);
-app.get("/heroes/editar/:id", obtenerSuperheroeParaEditarController);;
+app.use('/api', SuperHeroRoutes);
 
 // Configuración de ruta para Check de configuración de EJS
 app.get("/test", (req, res) => {
     res.render("dashboardTest");
 });
+
+// Configuración de ruta para la Landing Page EJS
+app.get("/", (req,res) => {
+    res.render("landingPage");
+});
+
+// Configuración de ruta para el dashboad EJS
+app.get("/heroes", obtenerSuperheroesDashboardController);
+
+// Configuración de ruta para editar Superhéroe EJS
+app.get("/heroes/editar/:id", obtenerSuperheroeParaEditarController);;
 
 // Configuración de ruta para agregar Superhéroe EJS
 app.get("/heroes/agregar", (req, res) => {

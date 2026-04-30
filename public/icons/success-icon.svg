@@ -1,0 +1,10 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Escudo -->
+  <path d="M24 4L40 10V22C40 32 32 40 24 44C16 40 8 32 8 22V10L24 4Z" fill="#0F172A"></path>
+
+  <!-- Círculo éxito -->
+  <circle cx="24" cy="24" r="10" fill="#22C55E"></circle>
+
+  <!-- Check -->
+  <path d="M19 24L23 28L30 20" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
