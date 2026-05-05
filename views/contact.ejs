@@ -1,0 +1,51 @@
+<div class="contact-container">
+
+    <h1>Contacto</h1>
+
+    <!-- MENSAJE DE ÉXITO -->
+    <% if (mensaje) { %>
+        <p class="success"><%= mensaje %></p>
+    <% } %>
+
+    <!-- ERRORES -->
+    <% if (errores && errores.length > 0) { %>
+        <div class="error">
+            <ul>
+                <% errores.forEach(err => { %>
+                    <li><%= err.msg %></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% } %>
+
+    <form action="/contacto" method="POST" class="contact-form">
+
+        <input 
+            type="text" 
+            name="nombre" 
+            placeholder="Tu nombre"
+            value="<%= datos?.nombre || '' %>"
+            required
+        >
+
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="Tu email"
+            value="<%= datos?.email || '' %>"
+            required
+        >
+
+        <textarea 
+            name="mensaje" 
+            placeholder="Escribí tu mensaje..."
+            required
+        ><%= datos?.mensaje || '' %></textarea>
+
+        <button type="submit" class="btn btn-save">
+            Enviar mensaje
+        </button>
+
+    </form>
+
+</div>

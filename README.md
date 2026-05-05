@@ -2,80 +2,64 @@ SPRINT 3 - TP 3 -- VISTA EJS (Actualización del SPRINT 3 - TP 2)
 
 Superhéroes App — CRUD con Node.js, Express y EJS
 
-Aplicación web completa para la gestión de superhéroes, desarrollada con Node.js, Express, MongoDB y EJS.
-Permite crear, visualizar, editar y eliminar superhéroes mediante una interfaz amigable y también a través de una API REST.
+Aplicación web desarrollada con Node.js, Express y EJS que permite gestionar un listado de superhéroes mediante operaciones CRUD (Crear, Leer, Actualizar y Eliminar).
 
-🚀 Funcionalidades
+---
 
-🔹 CRUD completo
-➕ Crear superhéroes
-📋 Listar todos los superhéroes
-✏️ Editar superhéroes existentes
-❌ Eliminar superhéroes
+## Funcionalidades
 
-🔹 Vistas dinámicas con EJS
-Dashboard interactivo
-Formularios de alta y edición
-Mensajes de éxito y validación
-Interfaz simple y consistente
+- ➕ Agregar nuevos superhéroes
+- ✏️ Editar información existente
+- ❌ Eliminar superhéroes con confirmación
+- 📋 Visualizar listado en dashboard responsive
+- 📬 Formulario de contacto funcional
+- ℹ️ Página "Acerca de"
+- 🎯 Landing page con CTA
 
-🔹 API REST
-Endpoints para operaciones CRUD en formato JSON
-Compatible con herramientas como Postman
+---
 
-🔹 Validaciones
-Validación de datos en backend con express-validator
-Manejo de errores en vistas (EJS)
-Normalización de datos (arrays, strings, etc.)
+## Tecnologías utilizadas
 
-🔹 UX mejorada
-Mensajes visuales de confirmación
-Redirecciones automáticas
-Formularios que conservan datos en caso de error
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- EJS (plantillas)
+- express-ejs-layouts
+- CSS (estilos personalizados)
 
-🛠️ Tecnologías utilizadas
-Node.js
-Express
-MongoDB + Mongoose
-EJS (Embedded JavaScript Templates)
-express-validator
-method-override
+---
 
-📁 Estructura del proyecto
-📦 proyecto
-├── 📂 config
-├── 📂 controllers
-├── 📂 middlewares
-├── 📂 routes
-├── 📂 services
-├── 📂 validators
-├── 📂 views
-│   ├── dashboard.ejs
-│   ├── addSuperhero.ejs
-│   ├── editSuperhero.ejs
-│   ├── success.ejs
-├── app.mjs
-└── package.json
+## 🎨 Características de UI
 
+- Layout reutilizable con `express-ejs-layouts`
+- Navbar dinámica (transparente en landing / sólida en vistas internas)
+- Dashboard en grid responsive (2 columnas)
+- Cards con efecto hover
+- Botones con iconos
+- Landing page con hero + CTA
+- Estilos centralizados en `styles.css`
+
+---
 
 🌐 Rutas principales
 
-🔵 Vistas (EJS)
-/heroes → Dashboard
-/heroes/agregar → Formulario de alta
-/heroes/editar/:id → Formulario de edición
+    Ruta        	        Descripción
+/	                    Landing page
+/heroes	                Dashboard de superhéroes
+/heroes/agregar	        Formulario de creación
+/heroes/editar/:id	    Edición
+/acerca	                Página informativa
+/contacto	            Formulario de contacto
 
-🟢 API (JSON)
-GET /api/heroes
-GET /api/heroes/:id
-POST /api/heroes
-PUT /api/heroes/:id
-PATCH /api/heroes/:id
-DELETE /api/heroes/:id
-
-👉 Dashboard con listado de superhéroes
-👉 Formularios de alta y edición
-👉 Mensajes visuales de éxito
+🧠 Conceptos aplicados
+Arquitectura MVC
+Manejo de rutas con Express
+Renderizado dinámico con EJS
+Middlewares (method-override, express.urlencoded)
+Validación de formularios
+Separación de responsabilidades (controllers / routes / views)
+Diseño responsive
 
 
 🚧 Mejoras futuras

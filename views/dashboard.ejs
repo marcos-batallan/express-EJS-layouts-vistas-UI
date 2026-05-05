@@ -1,48 +1,72 @@
 <div class="container">
+
+    <!--<h1>Superhéroes</h1>-->
+    
+
+    <!-- BOTÓN AGREGAR -->
+    <div class="add-hero-wrapper">
+        <img src="/icons/agregarSH-icon.png" alt="Agregar Icon" class="icon-left">
+        <a href="/heroes/agregar" class="btn btn-add">
+            Agregar nuevo Superhéroe
+        </a>
+    </div>
+
     <% if (superheroes.length === 0) { %>
         <p class="empty">No hay superhéroes cargados</p>
+    <% } else { %>
+
+        <div class="grid-heroes">
+
+            <% superheroes.forEach(heroe => { %>
+
+                <div class="card">
+
+                    <h3><%= heroe.nombreSuperHeroe %></h3>
+
+                    <p><strong>Nombre real:</strong> <%= heroe.nombreReal %></p>
+                    <p><strong>Edad:</strong> <%= heroe.edad %></p>
+                    <p><strong>Planeta:</strong> <%= heroe.planetaOrigen || 'Desconocido' %></p>
+                    <p><strong>Debilidad:</strong> <%= heroe.debilidad || 'N/A' %></p>
+
+                    <p><strong>Poderes:</strong> <%= heroe.poderes.join(', ') %></p>
+
+                    <% if (heroe.aliados && heroe.aliados.length > 0) { %>
+                        <p><strong>Aliados:</strong> <%= heroe.aliados.join(', ') %></p>
+                    <% } %>
+
+                    <% if (heroe.enemigos && heroe.enemigos.length > 0) { %>
+                        <p><strong>Enemigos:</strong> <%= heroe.enemigos.join(', ') %></p>
+                    <% } %>
+
+                    <div class="actions">
+
+                        <!-- EDITAR -->
+                        <button class="btn btn-edit"
+                            onclick="window.location.href='/heroes/editar/<%= heroe._id %>'">
+                            <!-- <img src="/icons/editarSH-icon.png" alt="Editar Icon" class="btn-icon"> -->
+                            Editar
+                        </button>
+
+                        <!-- ELIMINAR -->
+                        <form 
+                            action="/api/heroes/<%= heroe._id %>/eliminar?_method=DELETE" 
+                            method="POST"
+                            onsubmit="return confirm('¿Seguro que querés eliminar este superhéroe?')"
+                        >
+                            <button class="btn btn-delete" type="submit">
+                                <!-- <img src="/icons/eliminarSH-icon.png" alt="Eliminar Icon" class="btn-icon"> -->
+                                Eliminar
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            <% }) %>
+
+        </div>
+
     <% } %>
 
-    <% superheroes.forEach(heroe => { %>
-        <div class="card">
-            <h3><%= heroe.nombreSuperHeroe %></h3>
-
-            <p><strong>Nombre real:</strong> <%= heroe.nombreReal %></p>
-            <p><strong>Edad:</strong> <%= heroe.edad %></p>
-            <p><strong>Planeta:</strong> <%= heroe.planetaOrigen || 'Desconocido' %></p>
-            <p><strong>Debilidad:</strong> <%= heroe.debilidad || 'N/A' %></p>
-
-            <p><strong>Poderes:</strong> <%= heroe.poderes.join(', ') %></p>
-
-            <% if (heroe.aliados && heroe.aliados.length > 0) { %>
-                <p><strong>Aliados:</strong> <%= heroe.aliados.join(', ') %></p>
-            <% } %>
-
-            <% if (heroe.enemigos && heroe.enemigos.length > 0) { %>
-                <p><strong>Enemigos:</strong> <%= heroe.enemigos.join(', ') %></p>
-            <% } %>
-
-            <div class="actions">
-
-                <!-- EDITAR -->
-                <button 
-                    class="btn btn-edit"
-                    onclick="window.location.href='/heroes/editar/<%= heroe._id %>'"
-                >
-                    Editar
-                </button>
-
-                <!-- ELIMINAR -->
-                <form 
-                    action="/api/heroes/<%= heroe._id %>/eliminar?_method=DELETE" 
-                    method="POST"
-                    onsubmit="return confirm('¿Seguro que querés eliminar este superhéroe?')"
-                >
-                <button class="btn btn-delete" type="submit">
-                        Eliminar
-                    </button>
-                </form>
-            </div>
-        </div>
-    <% }) %>
 </div>

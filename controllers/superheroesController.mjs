@@ -54,7 +54,10 @@ export async function obtenerSuperheroesDashboardController (req, res) {
     try {
         const superheroes = await obtenerTodosLosSuperheroes(); // Llama a la fn del service
         
-        res.render("dashboard", { superheroes }); // Renderiza la vista y pasa los datos
+        res.render("dashboard", {
+            superheroes,
+            esLanding: false 
+        }); // Renderiza la vista y pasa los datos
 
     } catch (error) { // Mensaje de error del servidor
         res.status(500).send({
@@ -303,6 +306,34 @@ export async function eliminarSuperheroeControllerEJS(req, res) {
             mensaje: "Error al eliminar Superhéroe"
         });
     }
+}
+
+
+// Función para recibir datos de "Contacto", procesamiento, validación y respuesta 
+export function enviarContactoController(req, res) {
+    const { nombre, email, mensaje } = req.body;
+
+    const errores = [];
+
+    if (!nombre) errores.push({ msg: "El nombre es obligatorio" });
+    if (!email) errores.push({ msg: "El email es obligatorio" });
+    if (!mensaje) errores.push({ msg: "El mensaje es obligatorio" });
+
+    if (errores.length > 0) {
+        return res.render("contact", {
+            errores,
+            datos: req.body,
+            mensaje: null,
+            esLanding: false
+        });
+    }
+    
+    res.render("contact", {
+        errores: [],
+        datos: {},
+        mensaje: "✅ Mensaje enviado con éxito",
+        esLanding: false
+    });
 }
 
 

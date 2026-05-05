@@ -19,10 +19,11 @@ import { connectDB } from './config/dbConfig.mjs';
 // Se importan los endpoints relacionados a los superhéroes
 import SuperHeroRoutes from './routes/SuperHeroRoutes.mjs';
 
-// Se importa el controlador para la vista EJS
+// Se importan los controladores para la vista EJS
 import {
     obtenerSuperheroesDashboardController,
-    obtenerSuperheroeParaEditarController
+    obtenerSuperheroeParaEditarController,
+    enviarContactoController
 } from './controllers/superheroesController.mjs';
 
 // Aquí se crea el servidor listo para configurarse
@@ -64,13 +65,34 @@ app.get("/test", (req, res) => {
     res.render("dashboardTest");
 });
 
-// Configuración de ruta para la Landing Page EJS
+// Configuración de ruta para la Landing Page - EJS
 app.get("/", (req,res) => {
-    res.render("landingPage");
+    res.render("landingPage", { 
+        esLanding: true 
+    });
 });
 
-// Configuración de ruta para el dashboad EJS
+// Configuración de ruta para el dashboad - EJS
 app.get("/heroes", obtenerSuperheroesDashboardController);
+
+// Configuración de ruta para "Acerca de" - EJS
+app.get("/acerca", (req, res) => {
+    res.render("about", {
+        esLanding: false
+    });
+});
+
+// Configuración de ruta para "Contacto" - EJS
+app.get("/contacto", (req, res) => {
+    res.render("contact", {
+        errores: [],
+        datos: {},
+        mensaje: null,
+        esLanding: false
+    });
+});
+
+app.post("/contacto", enviarContactoController);
 
 // Configuración de ruta para editar Superhéroe EJS
 app.get("/heroes/editar/:id", obtenerSuperheroeParaEditarController);;

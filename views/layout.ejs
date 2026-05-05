@@ -10,25 +10,44 @@
 <body>
 
     <!-- NAVBAR HARDCODEADA -->
-    <header class="navbar">
+    <header class="navbar <%= (typeof esLanding !== 'undefined' && esLanding) ? 'navbar-transparent' : 'navbar-solid' %>">
         <div class="nav-container">
-            <h2 class="logo">🦸‍♂️ Superhéroes App</h2>
+            <div class="logo">
+                <img src="/icons/logoIcon.svg" alt="Logo">
+                <span>Superhéroes App</span>
+            </div>
 
             <nav>
                 <a href="/">Home</a>
                 <a href="/heroes">Superhéroes</a>
-                <a href="/about">Acerca</a>
-                <a href="/contact">Contacto</a>
+                <a href="/acerca">Acerca</a>
+                <a href="/contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <div class="container">
+    <!-- -->
+    <% if (typeof esLanding === "undefined" || !esLanding) { %>
+        <div class="container">
+            <%- body %>
+        </div>
+    <% } else { %>
         <%- body %>
-    </div>
+    <% } %>
 
-    <footer>
-        <p>© 2026 - Superhéroes App</p>
+    <footer class="main-footer">
+        <div class="footer-container">
+
+            <p>© 2026 Superhéroes App - Powered by Marcos Batallán</p>
+
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/heroes">Superhéroes</a>
+                <a href="/acerca">Acerca</a>
+                <a href="/contacto">Contacto</a>
+            </div>
+
+        </div>
     </footer>
 
 </body>
