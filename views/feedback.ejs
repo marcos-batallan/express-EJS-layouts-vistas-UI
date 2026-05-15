@@ -1,0 +1,31 @@
+<div class="feedback-container">
+
+    <div class="feedback-card">
+
+        <div class="feedback-icon <%= tipo %>">
+            <%= tipo === 'success' ? '✅' : '❌' %>
+        </div>
+
+        <h2 class="feedback-message <%= tipo %>">
+            <%= mensaje %>
+        </h2>
+
+        <p class="feedback-subtext">
+            <%= subtext || 'Volver al Dashboard' %>
+        </p>
+
+        <a href="<%= redirect || '/' %>" class="feedback-btn">
+            <%= textoBoton || 'Volver' %>
+        </a>
+
+    </div>
+
+    <% if (autoRedirect) { %>
+        <script>
+            setTimeout(() => {
+                window.location.href = "<%= redirect || '/' %>";
+            }, 2500);
+        </script>
+    <% } %>
+
+</div>

@@ -25,18 +25,28 @@
 
                     <p><strong>Nombre real:</strong> <%= heroe.nombreReal %></p>
                     <p><strong>Edad:</strong> <%= heroe.edad %></p>
-                    <p><strong>Planeta:</strong> <%= heroe.planetaOrigen || 'Desconocido' %></p>
-                    <p><strong>Debilidad:</strong> <%= heroe.debilidad || 'N/A' %></p>
+                    <p><strong>Planeta:</strong> <%= heroe.planetaOrigen || 'No especificado' %></p>
+                    <p><strong>Debilidad:</strong> <%= heroe.debilidad || 'No especificada' %></p>
 
-                    <p><strong>Poderes:</strong> <%= heroe.poderes.join(', ') %></p>
+                    <p><strong>Poderes:</strong> 
+                        <%= heroe.poderes && heroe.poderes.length > 0 
+                            ? heroe.poderes.join(', ') 
+                            : 'No especificado' %>
+                    </p>
 
-                    <% if (heroe.aliados && heroe.aliados.length > 0) { %>
-                        <p><strong>Aliados:</strong> <%= heroe.aliados.join(', ') %></p>
-                    <% } %>
+                    <p><strong>Aliados:</strong> 
+                        <%= heroe.aliados && heroe.aliados.length > 0 
+                            ? heroe.aliados.join(', ') 
+                            : 'No especificados' %>
+                    </p>
 
-                    <% if (heroe.enemigos && heroe.enemigos.length > 0) { %>
-                        <p><strong>Enemigos:</strong> <%= heroe.enemigos.join(', ') %></p>
-                    <% } %>
+                    <p><strong>Enemigos:</strong> 
+                        <%= heroe.enemigos && heroe.enemigos.length > 0 
+                            ? heroe.enemigos.join(', ') 
+                            : 'No especificados' %>
+                    </p>
+                    <p><strong>Creador:</strong> <%= heroe.creator || 'No especificado' %></p>
+
 
                     <div class="actions">
 

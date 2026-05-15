@@ -1,10 +1,6 @@
 
 export function renderizarSuperheroe (superheroe) {
     return {
-        // Aquí agrego el Id (no incluido en el TP original) para que se muestre cuando el cliente
-        // consulte, por ej. "todos los Superhéroes" y no sea imposible buscar por Id, ya que ese dato lo 
-        // genera automáticamente MongoDB cuando se crea el documento y el cliente no tiene como saberlo.
-        Id: superheroe.id,
         Nombre: superheroe.nombreSuperHeroe,
         "Nombre Real": superheroe.nombreReal,
         Edad: superheroe.edad,

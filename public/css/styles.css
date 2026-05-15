@@ -137,7 +137,7 @@ input {
 
 .hero p {
     font-size: 1.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .btn-cta {
@@ -432,4 +432,68 @@ input {
     flex-wrap: wrap;
     gap: 15px;
     }
+}
+
+
+/***** ESTILOS PARA LOS FEEDBACKS "Success - Error" *****/
+.feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.feedback-card {
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.feedback-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.feedback-message {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feedback-subtext {
+    margin-top: 10px;
+    color: #666;
+}
+
+/* Botón */
+.feedback-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.feedback-btn:hover {
+    opacity: 0.9;
+}
+
+/* Variantes */
+.success {
+    color: #28a745;
+}
+
+.error {
+    color: #dc3545;
+}
+
+.feedback-redirect {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #999;
 }

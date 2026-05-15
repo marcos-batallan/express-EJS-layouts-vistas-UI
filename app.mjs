@@ -60,10 +60,12 @@ app.use(methodOverride("_method"))
 // Configuración de rutas (todas las rutas bajo el prefijo /api)
 app.use('/api', SuperHeroRoutes);
 
+/*
 // Configuración de ruta para Check de configuración de EJS
 app.get("/test", (req, res) => {
     res.render("dashboardTest");
 });
+*/
 
 // Configuración de ruta para la Landing Page - EJS
 app.get("/", (req,res) => {
